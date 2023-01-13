@@ -24,7 +24,7 @@
                 <img src="Quizapp/logo.png" class="card-img-top" style="width: 60%;">
                 
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Anatomy</li>
+                  <li class="list-group-item list-group-selected ">Anatomy</li>
                   <li class="list-group-item">Biology</li>
                   <li class="list-group-item">Training</li>
                   <li class="list-group-item">Nutrition</li>
@@ -33,14 +33,24 @@
 
             <div class="card rounded-end" style="width: 40rem;">
                 <div class="card-body">
-                    <div class="text">
-                       <span class="headline">Welcome to <br> The Awesome Bodybuilding Quiz</span><br>Ready for the Challenge?
-                    </div>
+                    <div class="question"> <b id="current-question"></b></div>
                     
-                    <div style="margin-top: 100px;">
-                        <a href="index1.html" class="btn btn-primary">Let's Start!</a>
+                    <div class="answers-option">
+                       <div class="option-letter">A</div> <div class="option-answer" onclick="showAnswers('answer_1')" id="answer_1"></div>
                     </div>
-                    
+                    <div class="answers-option">
+                        <div class="option-letter">B</div> <div class="option-answer" onclick="showAnswers('answer_2')" id="answer_2"> </div>
+                    </div>
+                    <div class="answers-option">
+                        <div class="option-letter">C</div> <div class="option-answer" onclick="showAnswers('answer_3')" id="answer_3"></div>
+                    </div>
+                    <div class="answers-option">
+                        <div class="option-letter">D</div> <div class="option-answer" onclick="showAnswers('answer_4')" id="answer_4" ></div>
+                    </div>                    
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <div>Frage <b>1</b> von <b id="all-question"></b> </div>
+                    <button id="next-btn" onclick="nextQuestion()" disabled class="btn btn-primary">Next Question</button>
                 </div>
             </div>
         </div>
