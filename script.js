@@ -10,7 +10,7 @@ let questions = [
     },
     {   
         "question" : "Was genau ist der Muskelkater und wie entsteht er?",
-        'answer_1':"Entseht durch überbeanspruchung des Ziel Muskels, sind kleine Muskelfaser risse",
+        'answer_1':"Entseht durch überbeanspruchung des Ziel Muskels, es sind kleine Muskelfaser Risse",
         'answer_2':"Entsteht durch viel Schwitzen, ist eine verletzung des Muskels",
         'answer_3':"Ist die überdehnung eines Muskels, ensteht durch überbeanspruchung des Muskels",
         'answer_4':"Entseht durch zu schweres Training, ist ein indikator dafür das der Muskel sich regeneriert",
@@ -21,7 +21,7 @@ let questions = [
         'answer_1':"20 min",
         'answer_2':"45 min",
         'answer_3':"90 min",
-        'answer_4':"Ist Individuell, man kann keine starre werte angeben",
+        'answer_4':"Sehr Individuell, starre werte kann man nicht angeben",
         'right_answer': 4
     },
     {   
@@ -33,35 +33,64 @@ let questions = [
         'right_answer': 3
     },
     {   
-        "question" : "Welcher Makronährstoff ist für den Muskelaufbau essentiell?",
-        'answer_1':"Fette",
-        'answer_1':"Proteine",
-        'answer_1':"Kohlenhydrate",
-        'answer_1':"Ballaststoffe",
-        'right_answer': 2
+        "question" : "Welche vond en folgenden Übungen ist eine Grundübung?",
+        'answer_1':"Dips",
+        'answer_2':"Bizeps-Curls",
+        'answer_3':"Latziehen",
+        'answer_4':"Bankdrücken",
+        'right_answer': 4
     },
+    {   
+        "question" : "Welche Berechnung ist Korrekt?",
+        'answer_1':"Grundumsatz - 500Kcal = 0.5 Kg wwöchentlicher Gewichtsverlust ",
+        'answer_2':"Grundumsatz + 300Kcal = 0.5 Kg wwöchentliche Gewichtszunahme",
+        'answer_3':"Grundumsatz + 300Kcal = Keine Gewichtszunahme oder abnahme",
+        'answer_4':"7000 kcal entsprechen 2Kg Körperfett",
+        'right_answer': 1
+    },
+    {   
+        "question" : "Wie heißt der siebendfache und einflussreichste Mr.Olympia Sieger ?",
+        'answer_1':"Lou Ferrigno",
+        'answer_2':"Phil Heath",
+        'answer_3':"Jay Cutler",
+        'answer_4':"Arnold Schwrzennegger",
+        'right_answer': 4
+    }
 ];
-let qurrentQuestion = 0;
+let currentQuestion = 0;
+let rightAnswsers = 0;
 
 function init(){
     document.getElementById('all-question').innerHTML = questions.length;
-    showquestion();
+    showQuestion();
 }
-function showquestion(){
-    let question = questions[qurrentQuestion]
+function showQuestion(){
+    if (currentQuestion >= questions.length) {
+        document.getElementById('question-content').innerHTML =completeQuiz();
+        document.getElementById('next-btn').classList.add('d-none');
+        document.getElementById('answers-amount').innerHTML= questions.length;
+        document.getElementById('right-answers').innerHTML= rightAnswsers;
+    } else {
+        
+    }
+    let question = questions[currentQuestion]
     document.getElementById('current-question').innerHTML = question['question'];
     document.getElementById('answer_1').innerHTML=question['answer_1'];
     document.getElementById('answer_2').innerHTML=question['answer_2'];
     document.getElementById('answer_3').innerHTML=question['answer_3'];
     document.getElementById('answer_4').innerHTML=question['answer_4'];
+
+    document.getElementById('question-number').innerHTML =`${currentQuestion + 1}`;
 }
+
 function showAnswers(selectedAnswer){
-    let question = questions[qurrentQuestion];
+    let question = questions[currentQuestion];
     let selectedQuestionsNum = selectedAnswer.slice(-1);
     let idOfRightAnswer = `answer_${question['right_answer']}`;
 
     if (selectedQuestionsNum == question['right_answer']) {
         document.getElementById(selectedAnswer).parentNode.classList.add('bg-success');
+        rightAnswsers++;
     }else{
         document.getElementById(selectedAnswer).parentNode.classList.add('bg-danger');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
@@ -69,6 +98,38 @@ function showAnswers(selectedAnswer){
     document.getElementById('next-btn').disabled =false;
 }
 
-function nextQuestion(){
+function nextQuestion(){ 
+    currentQuestion++// jedesmal beim klicken des Buttons erhöht sich currenQuestion um +1;
+    document.getElementById('next-btn').disabled =true;
+    resetButtonsColor();
+    showQuestion();
+}
+
+function resetButtonsColor(){
+    document.getElementById('answer_1').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_2').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_3').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_4').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_1').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_2').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_3').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_4').parentNode.classList.remove('bg-success');
+}
+
+function completeQuiz(){
+    return/*html*/`
+    <div class="complete-design">
+        <div>
+            <img src="Quizapp/brain result.png" alt="">
+        </div>
+        <div>
+            <img src="Quizapp/trophy.png" alt="">
+        </div>
+    </div>
+        <div class="question"><b>COMPLETE BODYBUILDUNG QUIZ !</b></div>   
+        <div style="font-size: 24px;"> <b style="color:green;">RESULT</b> : <b style="color:green;" id="right-answers"></b> / <b id="answers-amount"></b> Fragen richtig beantwortet !</div>
+        
+        <a href="index1.html" class="btn btn-primary">Try again!</a>
     
+    `;
 }

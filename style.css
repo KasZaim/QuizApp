@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 .quiz-mask{
     display: flex;
@@ -19,20 +20,12 @@
 }
 .list-group-item{
     background-color: #27355C !important;
-    color: gray !important;
-    margin-top: 20px;
-    font-size: 24px;
-    font-family: 'Rubik', sans-serif;
-}
-.list-group-selected{
     color: white !important;
-    border-left: 5px solid white !important;
-    background-color: #27355C !important;
     margin-top: 20px;
     font-size: 24px;
     font-family: 'Rubik', sans-serif;
+    border-left: 5px solid white !important;
 }
-
 .list-group{
     border-top: none !important;
 }
@@ -61,8 +54,8 @@
     width: 90%;
     border: 1px solid rgba(0, 0, 0, 0.1);
     padding: 8px;
-    margin: 15px 15px;
-    font-size: 22px;
+    margin: 10px 15px;
+    font-size: 20px;
     cursor: pointer;
 }
 .answers-option:hover{
@@ -87,4 +80,65 @@
 }
 .bg-success, .bg-danger{
     color: white;
+}
+.complete-design{
+    display: flex;
+    width: 500px;
+    justify-content: space-around;
+}
+.complete-design img{
+    height: 130px;
+}
+@media (max-width: 770px){
+    .question {
+        font-size: 22px !important;
+        margin-bottom: 20px !important;
+    }
+    .answers-option{
+        font-size: 18px;
+    }
+}
+@media (max-width: 560px) {
+    .quiz-mask {
+        display: block;
+    }
+    .content{
+        padding: 10px !important;
+    }
+.card{
+    width: auto !important;
+    height: auto !important;
+}
+
+ul{
+    display: flex !important;
+    flex-direction: row !important;
+}
+li{
+    border: none !important;
+}
+.list-group-item{
+    font-size: 16px;
+    margin-top: 20px;
+}
+.card-img, .card-img-bottom, .card-img-top {
+ width: auto !important;
+}
+.rounded-start, .rounded-end{
+    border-radius: 5px !important;
+}
+
+}
+@media (max-width:435px) {
+    .list-group-item{
+        padding: 10px !important;
+        font-size: 14px !important;
+    }
+    .question{
+        font-size: 18px !important;
+    }
+    .answers-option{
+        font-size: 17px !important;
+    }
+    
 }
