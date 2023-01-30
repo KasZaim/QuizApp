@@ -126,8 +126,8 @@ function completeQuiz(){
             <img src="Quizapp/trophy.png" alt="">
         </div>
     </div>
-        <div class="question"><b>COMPLETE BODYBUILDUNG QUIZ !</b></div>   
-        <div style="font-size: 24px;"> <b style="color:green;">RESULT</b> : <b style="color:green;" id="right-answers"></b> / <b id="answers-amount"></b> Fragen richtig beantwortet !</div>
+        <div class="completed"><b>COMPLETE BODYBUILDUNG QUIZ !</b></div>   
+        <div class="answer-result" style="font-size: 24px;"> <b style="color:green;">RESULT</b> : <b style="color:green;" id="right-answers"></b> / <b id="answers-amount"></b> Fragen richtig beantwortet !</div>
         
         <a href="index1.html" class="btn btn-primary">Try again!</a>
     

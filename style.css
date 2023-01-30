@@ -89,7 +89,28 @@
 .complete-design img{
     height: 130px;
 }
-@media (max-width: 770px){
+@media(max-width:860px){
+    .complete-design{
+        width: 100% !important;
+    }
+    .complete-design img{
+        height: 100px;
+    }
+    .completed{
+        font-size: 20px !important;
+        display: flex;
+    }
+    .answer-result{
+        font-size: 20px !important;
+    }
+}
+@media (max-width: 780px){
+    .completed{
+        font-size: 18px !important;
+    }
+    .answer-result{
+        font-size: 18px !important;
+    }
     .question {
         font-size: 22px !important;
         margin-bottom: 20px !important;
@@ -99,6 +120,16 @@
     }
 }
 @media (max-width: 560px) {
+    .complete-design img{
+        height: 90px;
+        margin-bottom: 40px;
+    }
+    .completed{
+        margin-bottom: 40px;
+    }
+    .answer-result{
+        margin-bottom: 40px;
+    }
     .quiz-mask {
         display: block;
     }
